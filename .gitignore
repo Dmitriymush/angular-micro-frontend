@@ -90,6 +90,6 @@ Thumbs.db
 .github/instructions/
 
 # Package manager lock files
- package-lock.json
- yarn.lock
- pnpm-lock.yaml
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
