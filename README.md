@@ -119,7 +119,11 @@ This starts:
 - Users (http://localhost:4204)
 - Settings (http://localhost:4205)
 
-The Mock Service Worker automatically intercepts API calls and returns mock data.
+**Accessing with Mocks:**
+- Shell with mocks: http://localhost:4200?mock=true
+- Individual apps can also use the mock parameter (e.g., http://localhost:4202?mock=true)
+
+The Mock Service Worker automatically intercepts API calls and returns mock data when the `?mock=true` query parameter is present.
 
 
 ### Development - Without Mock Server
