@@ -119,11 +119,16 @@ This starts:
 - Users (http://localhost:4204)
 - Settings (http://localhost:4205)
 
-**Accessing with Mocks:**
-- Shell with mocks: http://localhost:4200?mock=true
-- Individual apps can also use the mock parameter (e.g., http://localhost:4202?mock=true)
+**Accessing the Application:**
 
-The Mock Service Worker automatically intercepts API calls and returns mock data when the `?mock=true` query parameter is present.
+To enable Mock Service Worker, add the `?mock=true` query parameter:
+```
+http://localhost:4200?mock=true
+```
+
+**Important:** Without the `?mock=true` parameter, the application will attempt to connect to a real backend API and will not work without proper API configuration.
+
+The Mock Service Worker automatically intercepts API calls and returns mock data when the query parameter is present, allowing you to develop and test without a backend.
 
 
 ### Development - Without Mock Server
