@@ -1,0 +1,90 @@
+<div class="asset-detail-container">
+  @if (loading()) {
+    <div class="loading">
+      <mat-spinner diameter="50"></mat-spinner>
+      <p>Loading asset details...</p>
+    </div>
+  } @else if (asset()) {
+    <div class="header">
+      <button mat-button (click)="goBack()" class="back-button">
+        <mat-icon>arrow_back</mat-icon>
+        Back to Assets
+      </button>
+    </div>
+
+    <mat-card class="asset-info-card">
+      <mat-card-header>
+        <mat-card-title>{{ asset()!.name }}</mat-card-title>
+        <mat-chip [class]="'status-chip ' + asset()!.status">
+          {{ asset()!.status }}
+        </mat-chip>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="asset-meta">
+          <div class="meta-item">
+            <span class="meta-label">Asset ID</span>
+            <span class="meta-value">{{ asset()!.id }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Owner</span>
+            <span class="meta-value">{{ asset()!.owner }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="vulnerabilities-card">
+      <mat-card-header>
+        <mat-card-title>
+          Vulnerabilities ({{ asset()!.vulnerabilities.length }})
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="severity-summary">
+          <mat-chip class="severity-chip critical">
+            {{ countBySeverity('critical') }} Critical
+          </mat-chip>
+          <mat-chip class="severity-chip high">
+            {{ countBySeverity('high') }} High
+          </mat-chip>
+          <mat-chip class="severity-chip medium">
+            {{ countBySeverity('medium') }} Medium
+          </mat-chip>
+          <mat-chip class="severity-chip low">
+            {{ countBySeverity('low') }} Low
+          </mat-chip>
+        </div>
+
+        <mat-divider class="divider"></mat-divider>
+
+        @if (asset()!.vulnerabilities.length > 0) {
+          <div class="vulnerabilities-list">
+            @for (vulnerability of asset()!.vulnerabilities; track vulnerability.id) {
+              <mat-card class="vulnerability-card">
+                <mat-card-content>
+                  <div class="vulnerability-header">
+                    <mat-chip [class]="'severity-indicator ' + vulnerability.severity">
+                      {{ vulnerability.severity }}
+                    </mat-chip>
+                    <span class="vulnerability-id">{{ vulnerability.id }}</span>
+                  </div>
+                  <p class="vulnerability-description">{{ vulnerability.description }}</p>
+                </mat-card-content>
+              </mat-card>
+            }
+          </div>
+        } @else {
+          <div class="no-vulnerabilities">
+            <mat-icon>check_circle</mat-icon>
+            <p>No vulnerabilities found for this asset</p>
+          </div>
+        }
+      </mat-card-content>
+    </mat-card>
+  } @else {
+    <div class="error">
+      <mat-icon>error</mat-icon>
+      <p>Asset not found</p>
+    </div>
+  }
+</div>

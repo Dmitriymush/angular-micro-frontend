@@ -1,0 +1,41 @@
+<mat-nav-list class="sidebar">
+  <div class="sidebar-section">
+    <h3 mat-subheader>MAIN</h3>
+    <a mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <mat-icon matListItemIcon>home</mat-icon>
+      <span matListItemTitle>Home</span>
+    </a>
+    <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+      <mat-icon matListItemIcon>dashboard</mat-icon>
+      <span matListItemTitle>Dashboard</span>
+    </a>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="sidebar-section">
+    <h3 mat-subheader>MANAGEMENT</h3>
+    <a mat-list-item routerLink="/assets" routerLinkActive="active">
+      <mat-icon matListItemIcon>inventory</mat-icon>
+      <span matListItemTitle>Assets</span>
+    </a>
+    <a mat-list-item routerLink="/findings" routerLinkActive="active">
+      <mat-icon matListItemIcon>bug_report</mat-icon>
+      <span matListItemTitle>Findings</span>
+    </a>
+    <a mat-list-item routerLink="/users" routerLinkActive="active">
+      <mat-icon matListItemIcon>people</mat-icon>
+      <span matListItemTitle>Users</span>
+    </a>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="sidebar-section">
+    <h3 mat-subheader>SYSTEM</h3>
+    <a mat-list-item routerLink="/settings" routerLinkActive="active">
+      <mat-icon matListItemIcon>settings</mat-icon>
+      <span matListItemTitle>Settings</span>
+    </a>
+  </div>
+</mat-nav-list>

@@ -1,0 +1,1 @@
+{"version":3,"file":"finding.model.d.ts","sourceRoot":"","sources":["../../../../src/lib/models/finding.model.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,OAAO;IACtB,EAAE,EAAE,MAAM,CAAC;IACX,OAAO,EAAE,MAAM,CAAC;IAChB,QAAQ,EAAE,KAAK,GAAG,QAAQ,GAAG,MAAM,GAAG,UAAU,CAAC;IACjD,KAAK,EAAE,MAAM,CAAC;IACd,MAAM,EAAE,MAAM,GAAG,UAAU,CAAC;CAC7B"}

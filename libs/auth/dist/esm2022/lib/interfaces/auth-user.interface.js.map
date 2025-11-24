@@ -1,0 +1,1 @@
+{"version":3,"file":"auth-user.interface.js","sourceRoot":"","sources":["../../../../src/lib/interfaces/auth-user.interface.ts"],"names":[],"mappings":"","sourcesContent":["export interface AuthUser {\n  id: string;\n  name: string;\n  email: string;\n  role: string;\n}\n"]}

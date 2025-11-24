@@ -1,0 +1,26 @@
+{
+  "name": "@angular-micro-frontend/api",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/core": "^20.3.0"
+  },
+  "sideEffects": false,
+  "module": "esm2022/angular-micro-frontend-api.js",
+  "typings": "angular-micro-frontend-api.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./angular-micro-frontend-api.d.ts",
+      "default": "./esm2022/angular-micro-frontend-api.js"
+    }
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled in full compilation mode. This is not allowed.\\nPlease delete and rebuild the package with partial compilation mode, before attempting to publish.\\n')\" && exit 1"
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"dashboard.model.js","sourceRoot":"","sources":["../../../../src/lib/models/dashboard.model.ts"],"names":[],"mappings":"","sourcesContent":["export interface DashboardStats {\n  totalUsers: number;\n  totalAssets: number;\n  activeAssets: number;\n  openFindings: number;\n  criticalFindings: number;\n}\n"]}

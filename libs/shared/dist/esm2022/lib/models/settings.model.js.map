@@ -1,0 +1,1 @@
+{"version":3,"file":"settings.model.js","sourceRoot":"","sources":["../../../../src/lib/models/settings.model.ts"],"names":[],"mappings":"","sourcesContent":["export interface Settings {\n  theme: string;\n  notifications: boolean;\n  language: string;\n  autoRefresh: boolean;\n}\n"]}

@@ -1,0 +1,61 @@
+<div class="findings-container">
+  <div class="header">
+    <h1>Security Findings</h1>
+    <p class="subtitle">Track and manage security vulnerabilities</p>
+  </div>
+
+  @if (loading()) {
+    <div class="loading">
+      <mat-spinner diameter="50"></mat-spinner>
+      <p>Loading findings...</p>
+    </div>
+  } @else if (error()) {
+    <div class="error-message">
+      <mat-icon>error</mat-icon>
+      <p>{{ error() }}</p>
+    </div>
+  } @else if (sortedFindings().length > 0) {
+    <div class="findings-list">
+      @for (finding of sortedFindings(); track finding.id) {
+        <mat-card class="finding-card" [class.resolved]="finding.status === 'resolved'">
+          <mat-card-content>
+            <div class="finding-header">
+              <div class="finding-info">
+                <h3>{{ finding.title }}</h3>
+                <p class="finding-asset">
+                  <mat-icon>inventory</mat-icon>
+                  Asset ID: {{ finding.assetId }}
+                </p>
+              </div>
+              <div class="finding-badges">
+                <mat-chip [class]="'severity-chip ' + finding.severity">
+                  {{ finding.severity }}
+                </mat-chip>
+                <mat-chip [class]="'status-chip ' + finding.status">
+                  {{ finding.status }}
+                </mat-chip>
+              </div>
+            </div>
+            <div class="finding-actions">
+              @if (finding.status === 'open') {
+                <button mat-raised-button color="accent" (click)="resolveFinding(finding.id)">
+                  <mat-icon>check_circle</mat-icon>
+                  Mark as Resolved
+                </button>
+              }
+              <button mat-button>
+                <mat-icon>visibility</mat-icon>
+                View Details
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  } @else {
+    <div class="empty">
+      <mat-icon>bug_report</mat-icon>
+      <p>No findings found</p>
+    </div>
+  }
+</div>

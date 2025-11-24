@@ -1,0 +1,59 @@
+<mat-toolbar color="primary" class="navbar">
+  <span class="navbar-title">Security Dashboard</span>
+
+  <span class="spacer"></span>
+
+  <div class="navbar-links">
+    <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <mat-icon>home</mat-icon>
+      Home
+    </a>
+    <a mat-button routerLink="/dashboard" routerLinkActive="active">
+      <mat-icon>dashboard</mat-icon>
+      Dashboard
+    </a>
+    <a mat-button routerLink="/assets" routerLinkActive="active">
+      <mat-icon>inventory</mat-icon>
+      Assets
+    </a>
+    <a mat-button routerLink="/findings" routerLinkActive="active">
+      <mat-icon>bug_report</mat-icon>
+      Findings
+    </a>
+    <a mat-button routerLink="/users" routerLinkActive="active">
+      <mat-icon>people</mat-icon>
+      Users
+    </a>
+    <a mat-button routerLink="/settings" routerLinkActive="active">
+      <mat-icon>settings</mat-icon>
+      Settings
+    </a>
+  </div>
+
+  <span class="spacer"></span>
+
+  <div class="navbar-user">
+    @if (authService.isAuthenticated()) {
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+        {{ authService.user()?.name || 'User' }}
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          Profile
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          Logout
+        </button>
+      </mat-menu>
+    } @else {
+      <button mat-raised-button color="accent">
+        <mat-icon>login</mat-icon>
+        Login
+      </button>
+    }
+  </div>
+</mat-toolbar>

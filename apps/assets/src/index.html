@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>assets</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <app-assets-entry></app-assets-entry>
+    <script>
+      // Check URL parameter to enable MSW
+      window.__USE_MSW__ = new URLSearchParams(window.location.search).get('mock') === 'true';
+      if (window.__USE_MSW__) {
+        console.log('🎭 Mock mode enabled via ?mock=true');
+      }
+    </script>
+  </body>
+</html>

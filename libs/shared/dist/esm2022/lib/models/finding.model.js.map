@@ -1,0 +1,1 @@
+{"version":3,"file":"finding.model.js","sourceRoot":"","sources":["../../../../src/lib/models/finding.model.ts"],"names":[],"mappings":"","sourcesContent":["export interface Finding {\n  id: string;\n  assetId: string;\n  severity: 'low' | 'medium' | 'high' | 'critical';\n  title: string;\n  status: 'open' | 'resolved';\n}\n"]}

@@ -1,0 +1,59 @@
+<div class="users-container">
+  <div class="header">
+    <div class="header-content">
+      <h1>User Management</h1>
+      <p class="subtitle">Manage system users and permissions</p>
+    </div>
+    <button mat-raised-button color="primary">
+      <mat-icon>person_add</mat-icon>
+      Add User
+    </button>
+  </div>
+
+  @if (loading()) {
+    <div class="loading">
+      <mat-spinner diameter="50"></mat-spinner>
+      <p>Loading users...</p>
+    </div>
+  } @else if (error()) {
+    <div class="error-message">
+      <mat-icon>error</mat-icon>
+      <p>{{ error() }}</p>
+    </div>
+  } @else if (sortedUsers().length > 0) {
+    <div class="users-grid">
+      @for (user of sortedUsers(); track user.id) {
+        <mat-card class="user-card">
+          <mat-card-content>
+            <div class="user-avatar">
+              <mat-icon>account_circle</mat-icon>
+            </div>
+            <div class="user-info">
+              <h3>{{ user.name }}</h3>
+              <mat-chip class="role-chip">{{ user.role }}</mat-chip>
+              <p class="user-login">
+                <mat-icon>schedule</mat-icon>
+                Last login: {{ formatDate(user.lastLogin) }}
+              </p>
+            </div>
+          </mat-card-content>
+          <mat-card-actions class="user-actions">
+            <button mat-button color="primary">
+              <mat-icon>edit</mat-icon>
+              Edit
+            </button>
+            <button mat-button color="warn" (click)="deleteUser(user.id)">
+              <mat-icon>delete</mat-icon>
+              Delete
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  } @else {
+    <div class="empty">
+      <mat-icon>people_outline</mat-icon>
+      <p>No users found</p>
+    </div>
+  }
+</div>
